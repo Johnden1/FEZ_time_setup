@@ -56,12 +56,12 @@ if (-not [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).grou
 
 while ($true) {
     $key = [System.Windows.Forms.Keys][KeyLogger.Program]::WaitForKey()
-	if ($key -eq "NumPad0") {
+	if ($key -eq "NumPad0") {	# Resets the time to current time
 		W32tm /resync /force
 	}
     if ($key -eq "NumPad1") {
         #Set-Date -Date "01/01/2023 00:31:55"
-		$d = (Get-ChildItem $env:appdata\FEZ\SaveSlot4).CreationTime
+		$d = (Get-ChildItem $env:appdata\FEZ\SaveSlot4).CreationTime	# Location of FEZ speedrun save file
         Set-Date -Date $d
     }
 	if ($key -eq "NumPad9") {
@@ -80,7 +80,8 @@ while ($true) {
         #Set-Date -Date "02/01/2023 15:11:25"
         Set-Date -Date ($d.AddDays(1) + "14:39:25")
     }
-	if ($key -eq "Decimal") {
+	if ($key -eq "Decimal") {	# Quits the program
         exit
     }
+
 }
